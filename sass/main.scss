@@ -17,19 +17,26 @@ $bleu:#232F3E;
     color: white;
     display: flex;
     justify-content: center;
-    height: 80px;
+    height: 90px;
     position: sticky;
+    width: 100%;
+    top: 0;
 }
 
 .navbar-center{
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
+        padding: 0 5%;
+}
+.nav-icon{
+    font-size: 2rem;
+    cursor: pointer;
 }
 .heading-title{
     color:#fff;
-    font-size: 2rem;
+    font-size: 2.2rem;
 }
 .cart-btn{
     display: flex;
@@ -56,11 +63,15 @@ $bleu:#232F3E;
 .hero{
     margin: 0 auto;
     width: 90%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     &-title{
         color: $bleu;
         font-size: 5rem;
         text-align: center;
-        margin-top: 100px;
         margin-bottom: 130px;
     }
     &-btn{
@@ -78,4 +89,56 @@ $bleu:#232F3E;
 .hero-btn__container{
     display: flex;
     justify-content: center;
+    align-items:center;
+}
+
+.banner-title{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: $bleu;
+}
+#products-container__inner{ 
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.product-item{
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.45);
+    margin-bottom: 100px;
+    &__title{
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    &__img{
+        width: 400px;
+        margin-bottom: 20px;
+    }
+    &__description{
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+
+    }
+    &__price{
+        font-size: 1.2rem;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+    &__btn{
+        padding: 15px;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        background-color: orangered;
+        color: white;
+        border: none;
+    }
 }
