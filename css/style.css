@@ -61,7 +61,7 @@ body {
 .hero {
   margin: 0 auto;
   width: 90%;
-  min-height: 100vh;
+  min-height: calc(100vh - 90px);
   display: flex;
   flex-direction: column;
   justify-content: center;
