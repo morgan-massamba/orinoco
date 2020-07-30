@@ -28,29 +28,12 @@ class UI{
             <img class="product-item__img" src="${item.imageUrl}" alt="item">
             <p class="product-item__description">${item.description}</p>
             <p class="product-item__price">${item.price}$</p>
-            <button class="product-item__btn" data-id=${item._id}>Choisir le coloris</button>
+            <a href="./page_produit.html?&id=${item._id}"><button class="product-item__btn" data-id=${item._id}>Choisir le coloris</button></a>
             </div>
             <!--item end-->
             `;
             productsDOM.innerHTML = result;
         })
-    }
-
-    getColorisButtons(){
-        const colorisButtons = [...document.querySelectorAll('.product-item__btn')];
-        colorisButtons.forEach(button => {
-            let id = button.dataset.id;
-            button.addEventListener('click', () => {
-                this.getProduct(id);
-            })
-        })
-    }
-
-    async getProduct(id){
-        let result = await fetch(`http://localhost:3000/api/teddies/${id}`);
-        let data = await result.json();
-        console.log(data);
-        return data;
     }
 }
 
@@ -62,6 +45,5 @@ document.addEventListener('DOMContentLoaded', () => {
     getProducts()
     .then(products => {
         ui.displayProducts(products);
-        ui.getColorisButtons();
     })
 })

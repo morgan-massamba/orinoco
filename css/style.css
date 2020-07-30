@@ -132,6 +132,14 @@ body {
   font-style: italic;
   margin-bottom: 20px;
 }
+.product-item__coloris {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.product-item__quantity {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
 .product-item__btn {
   padding: 15px;
   border-radius: 20px;
@@ -141,6 +149,15 @@ body {
   background-color: orangered;
   color: white;
   border: none;
+}
+
+#product-container {
+  min-height: calc(100vh - 90px);
+}
+
+.no-shadow-margin {
+  box-shadow: none;
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

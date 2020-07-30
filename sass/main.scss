@@ -131,6 +131,14 @@ $bleu:#232F3E;
         font-style: italic;
         margin-bottom: 20px;
     }
+    &__coloris{
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    &__quantity{
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
     &__btn{
         padding: 15px;
         border-radius: 20px;
@@ -142,3 +150,14 @@ $bleu:#232F3E;
         border: none;
     }
 }
+
+//page produit
+#product-container{
+    min-height: calc(100vh - 90px);
+}
+
+.no-shadow-margin{
+    box-shadow: none;
+    margin-bottom: 0;
+}
+
