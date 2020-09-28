@@ -1,7 +1,5 @@
 let productsDOM = document.getElementById('products-container__inner');
 
-let cart =[];
-
 //getting the products
 class Products{
     async getProducts(){
@@ -17,7 +15,7 @@ class Products{
 }
 
 //display products
-class UI{
+class UI{   
     displayProducts(data){
         let result ="";
             data.forEach(item => {
@@ -36,6 +34,12 @@ class UI{
         })
     }
 }
+//local storage
+class Storage{
+    static saveProducts(products){
+        localStorage.setItem("products", JSON.stringify(products));
+    }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const ui = new UI();
@@ -45,5 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     getProducts()
     .then(products => {
         ui.displayProducts(products);
+        Storage.saveProducts(products);
     })
 })

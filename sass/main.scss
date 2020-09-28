@@ -107,6 +107,7 @@ $bleu:#232F3E;
 .product-item{
     padding: 30px;
     display: flex;
+    border-radius: 20px;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -161,3 +162,202 @@ $bleu:#232F3E;
     margin-bottom: 0;
 }
 
+//page panier
+.panier-title{
+    font-size: 34px;
+    text-align: center;
+    margin-top: 20px;
+}
+.panier-name{
+    width: 100px;
+}
+#panier-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2%;
+}
+.panier-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(5, 4, 4, 0.25);
+    border: 1px solid grey;
+    background-color: #f2f2f2;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    p{
+        font-size: 20px;
+    }
+}
+.panier-image{
+    width: 150px;
+    height: 100px;
+    & img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.panier-quantity{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 120px;
+    p{
+        font-size: 20px;
+    }
+    &__icon{
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        border-radius: 50%;
+        background-color: $bleu;
+        i{
+            font-size: 14px;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+.delete-icon{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    i{
+        font-size: 24px;
+        cursor: pointer;
+        color: $bleu;
+    }
+}
+
+.panier-total{
+    width: 100%;
+}
+
+.information-title{
+    text-align: center;
+    font-size: 26px;
+    margin-top: 20px;
+}
+
+//FORM 
+.information-container{
+    padding: 2%;
+}
+.form-container{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.form-item{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    label{
+        width: 20%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $bleu;
+        color: white;
+        font-size: 18px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    input{
+        height: 100%;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: 1px solid grey;
+        width: 80%;
+        font-size: 18px;
+        padding-left: 10px;
+    }
+}
+.information-container form .form-submit-btn{
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    background-color: orangered;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 18px;
+}
+
+//page confirmation
+.confirmation-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .sentence{
+        width: 100%;
+        margin-top: 50px;
+        font-size: 1.5rem;
+        span{
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+//MEDIA QUERIES
+@media screen and (max-width:600px){
+    .hero-title{
+        font-size: 3rem;
+    }
+    .product-item__img{
+        width: 300px;
+    }
+    .form-item label{
+        width: 40%;
+    }
+    .form-item input{
+        width: 60%;
+        font-size: 16px;
+    }
+    .information-container form .form-submit-btn{
+    width: 75%;
+    }
+    .panier-image{
+        width: 100px;
+    }
+    .panier-name{
+        width: 80px;
+    }
+    .panier-quantity{
+        width: 60px;
+        flex-direction: column;
+        &__icon{
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+        }
+    }
+    .panier-item p{
+        font-size: 16px;
+    }
+    .delete-icon {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        i{
+            font-size: 18px;
+        }
+    }
+}
