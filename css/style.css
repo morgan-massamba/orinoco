@@ -44,6 +44,7 @@ body {
   justify-content: center;
   position: relative;
   cursor: pointer;
+  color: white;
 }
 .cart-btn__icon {
   font-size: 2rem;
