@@ -34,19 +34,21 @@
   <section> 
     <h2 class="panier-title">Votre panier</h2>
     <div id="panier-container">
-        <!--Debut Item-->
+      
+        <!--Transferer en JS
+        Debut Item
         <div class="panier-item">
             <div class="panier-image">
                 <img src="./images/teddy_1.jpg" alt="ours">
             </div>
             <p class="panier-name">Teddy</p>
-            <p>52 $</p>
+            <p class="panier-price"><span>52</span> €</p>
             <div class="panier-quantity">
-                <div class="panier-quantity__icon">
+                <div class="panier-quantity__icon moins">
                     <i class="fas fa-minus"></i>
                 </div>
-                <p>1</p>
-                <div class="panier-quantity__icon">
+                <p class="panier-quantity__inner">1</p>
+                <div class="panier-quantity__icon plus">
                     <i class="fas fa-plus"></i>
                 </div>
             </div>  
@@ -54,33 +56,12 @@
                 <i class="fas fa-trash-alt"></i>
             </div>
         </div>
-        <!--End Item-->
+        End Item   
+        -->
 
         <!--Debut Item-->
-        <div class="panier-item">
-            <div class="panier-image">
-                <img src="./images/teddy_2.jpg" alt="ours">
-            </div>
-            <p class="panier-name">Lenny and Carl</p>
-            <p>52 $</p>
-            <div class="panier-quantity">
-                <div class="panier-quantity__icon">
-                    <i class="fas fa-minus"></i>
-                </div>
-                <p>1</p>
-                <div class="panier-quantity__icon">
-                    <i class="fas fa-plus"></i>
-                </div>
-            </div>  
-            <div class="delete-icon">
-                <i class="fas fa-trash-alt"></i>
-            </div>
-        </div>
-        <!--End Item-->
-        
-        <!--Debut Item-->
             <div class="panier-item">
-                <p class="panier-total">Total: 104$</p>
+                <p class="panier-total">Total: <span></span> €</p>
             </div>
          <!--End Item-->
 

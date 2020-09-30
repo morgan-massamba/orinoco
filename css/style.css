@@ -350,7 +350,6 @@ body {
 
   .panier-quantity {
     width: 60px;
-    flex-direction: column;
   }
   .panier-quantity__icon {
     width: 18px;
@@ -369,6 +368,11 @@ body {
   }
   .delete-icon i {
     font-size: 18px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .panier-image {
+    display: none;
   }
 }
 

@@ -343,7 +343,6 @@ $bleu:#232F3E;
     }
     .panier-quantity{
         width: 60px;
-        flex-direction: column;
         &__icon{
             width: 18px;
             height: 18px;
@@ -360,5 +359,11 @@ $bleu:#232F3E;
         i{
             font-size: 18px;
         }
+    }
+}
+
+@media screen and (max-width:350px){
+    .panier-image{
+        display: none;
     }
 }
