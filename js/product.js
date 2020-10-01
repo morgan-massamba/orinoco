@@ -20,7 +20,7 @@ function displayProduct(data){
         productTitle.innerText= data.name;
         productImg.src= data.imageUrl;
         productDescription.innerText= data.description;
-        productPrice.innerText= (data.price/100) +'$';
+        productPrice.innerText= (data.price/100) +'€';
         bagBtn.dataset.id = data._id;
         afficherColoris(data);
         getBagButton(data);

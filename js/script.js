@@ -23,7 +23,7 @@ function displayProducts(data){
             <h2 class="product-item__title">${item.name}</h2>
             <img class="product-item__img" src="${item.imageUrl}" alt="item">
             <p class="product-item__description">${item.description}</p>
-            <p class="product-item__price">${(item.price/100)}$</p>
+            <p class="product-item__price">${(item.price/100)}€</p>
             <a href="./page_produit.html?&id=${item._id}"><button class="product-item__btn" data-id=${item._id}>Choisir le coloris</button></a>
             </div>
             <!--item end-->

@@ -103,8 +103,8 @@ function setCartValues(){
         `;
 
         //Envoie des informations du formulaire
-        let submitBtn = document.querySelector('.form-submit-btn');
-        submitBtn.addEventListener('click', e =>{
+        let form = document.querySelector('.form-container');
+        form.addEventListener('submit', e =>{
             e.preventDefault();
 
             let contact = {
