@@ -82,7 +82,7 @@ function getBagButton(data){
 
             }
 
-                //afficher les valeurs dans l'icône basket
+                //afficher les valeurs dans l'icône baskets
                 setIconValue();
         })
 }

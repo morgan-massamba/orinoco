@@ -2,6 +2,10 @@ let quantityIcon = document.querySelector('.cart-btn__items');
 let panierContainer = document.getElementById('panier-container');
 let infoSection = document.getElementById('information-section');
 
+document.addEventListener('DOMContentLoaded', () => {
+    setIconValue();
+    setCartValues();
+})
 
 //Afficher les valeurs dans l'icône orange du panier;
 function setIconValue(){
@@ -70,33 +74,73 @@ function setCartValues(){
         <h3 class="information-title">Vos informations</h3>
       
         <div class="information-container">
-            <form action="" method="" class="form-container">
+            <form class="form-container">
                 <div class="form-item">
                     <label for="prenom">Prénom:</label>
-                    <input type="text" name="prenom" id="prenom" required>
+                    <input type="text" name="prenom" id="prenom" pattern="[A-Za-zéèàê -]{2,}" maxlength="35" placeholder="Entrez votre prénom" required>
                 </div>
                 <div class="form-item">
                     <label for="nom">Nom:</label>
-                    <input type="text" name="nom" id="nom" required>
+                    <input type="text" name="nom" id="nom" pattern="[A-Za-zéèàê -]{2,}" maxlength="35" placeholder="Entrez votre nom" required>
                 </div>
                 <div class="form-item">
                     <label for="address">Adresse: </label>
-                    <input type="text" name="address" id="address" required>
+                    <input type="text" name="address" id="address" pattern="[0-9A-Za-zéèàê -]{2,}" maxlength="50" placeholder="Entrez votre adresse" required>
                 </div>
                 <div class="form-item">
                     <label for="city">Ville: </label>
-                    <input type="text" name="city" id="city" required>
+                    <input type="text" name="city" id="city" pattern="[A-Za-zéèàê -]{2,}" maxlength="35" placeholder="Entrez votre ville" required>
                 </div>
                 <div class="form-item">
                     <label for="email">E-mail: </label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="email" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$" maxlength="60" placeholder="exemple@gmail.com" required>
                 </div>
                 <div class="form-item">
                     <input class="form-submit-btn" type="submit" value="Passez la commande">
                 </div>
             </form>
         </div>
-        `
+        `;
+
+        //Envoie des informations du formulaire
+        let submitBtn = document.querySelector('.form-submit-btn');
+        submitBtn.addEventListener('click', e =>{
+            e.preventDefault();
+
+            let contact = {
+                firstName : document.getElementById('prenom').value,
+                lastName : document.getElementById('nom').value,
+                address : document.getElementById('address').value,
+                city : document.getElementById('city').value,
+                email : document.getElementById('email').value
+            }
+
+            let products = [];
+            cart.forEach(item => {
+                products.push(item._id);
+            })
+
+            let myObj = {contact, products};
+            myObj = JSON.stringify(myObj);
+
+            fetch("http://localhost:3000/api/teddies/order", {
+                method: "POST", 
+                body : myObj,
+                headers : { 'Content-Type': 'application/json' },
+            })
+            .then( res => {
+                return res.json();
+            })
+            .then (res => {
+                localStorage.setItem('orderId', JSON.stringify(res.orderId));
+                localStorage.setItem('total', JSON.stringify(total));
+                localStorage.removeItem('cart');
+                window.location ='confirmation.html'
+            })
+            .catch(e => {
+                console.log(e);
+            })
+        })
         
         //Augmenter la quantite quand on appuie sur le +
         const itemQuantityPlus = document.querySelectorAll('.panier-quantity__icon--plus');
@@ -146,7 +190,7 @@ function setCartValues(){
             })
         })
 
-        //Supprimer un item quand on appuie sur l'icône
+        //Supprimer un item quand on appuie sur l'icône delete
         const deleteIcon = document.querySelectorAll('.delete-icon');
         deleteIcon.forEach(btn => {
             btn.addEventListener('click', e =>{
@@ -163,8 +207,9 @@ function setCartValues(){
                 setCartValues();    
             })
         })
-
     }
+
+    //si il n'y a rien dans le localStorage, alors on met un message panier vide et on supprime le champ formulaire
     else{
         panierContainer.innerHTML = "<p class='sorrymessage'>Oups, votre panier est vide :(</p>"
         infoSection.innerHTML="";
@@ -173,7 +218,3 @@ function setCartValues(){
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    setIconValue();
-    setCartValues();
-})
