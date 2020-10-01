@@ -1,10 +1,6 @@
 let quantityIcon = document.querySelector('.cart-btn__items');
-let itemImage = document.querySelector('.panier-image img');
-let itemName = document.querySelector('.panier-name');
-let itemPrice = document.querySelector('.panier-price');
-let itemQuantity = document.querySelector('.panier-quantity__inner');
-let itemTotal = document.querySelector('.panier-total span');
 let panierContainer = document.getElementById('panier-container');
+let infoSection = document.getElementById('information-section');
 
 
 //Afficher les valeurs dans l'icône orange du panier;
@@ -68,6 +64,39 @@ function setCartValues(){
         </div>
         `
         )
+
+        infoSection.innerHTML = 
+        `     
+        <h3 class="information-title">Vos informations</h3>
+      
+        <div class="information-container">
+            <form action="" method="" class="form-container">
+                <div class="form-item">
+                    <label for="prenom">Prénom:</label>
+                    <input type="text" name="prenom" id="prenom" required>
+                </div>
+                <div class="form-item">
+                    <label for="nom">Nom:</label>
+                    <input type="text" name="nom" id="nom" required>
+                </div>
+                <div class="form-item">
+                    <label for="address">Adresse: </label>
+                    <input type="text" name="address" id="address" required>
+                </div>
+                <div class="form-item">
+                    <label for="city">Ville: </label>
+                    <input type="text" name="city" id="city" required>
+                </div>
+                <div class="form-item">
+                    <label for="email">E-mail: </label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-item">
+                    <input class="form-submit-btn" type="submit" value="Passez la commande">
+                </div>
+            </form>
+        </div>
+        `
         
         //Augmenter la quantite quand on appuie sur le +
         const itemQuantityPlus = document.querySelectorAll('.panier-quantity__icon--plus');
@@ -102,9 +131,16 @@ function setCartValues(){
 
                 if (itemToUpdate.quantite <= 0) {
                 cart = cart.filter(element => element._id !== id)
+                    if (cart.length === 0) {
+                        localStorage.removeItem('cart');
+                    }
+                    else{                        
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    }
+                } 
+                else {                
+                    localStorage.setItem('cart', JSON.stringify(cart));
                 }
-
-                localStorage.setItem('cart', JSON.stringify(cart));
                 setIconValue();
                 setCartValues();
             })
@@ -117,16 +153,22 @@ function setCartValues(){
                 let id = e.target.dataset.id;
 
                 cart = cart.filter(element => element._id !== id)
-
-                localStorage.setItem('cart', JSON.stringify(cart));
+                if (cart.length === 0){
+                    localStorage.removeItem('cart');
+                }
+                else{
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                }
                 setIconValue();
                 setCartValues();    
             })
         })
 
     }
-    
-
+    else{
+        panierContainer.innerHTML = "<p class='sorrymessage'>Oups, votre panier est vide :(</p>"
+        infoSection.innerHTML="";
+    }
 
 }
 

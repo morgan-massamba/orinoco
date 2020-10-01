@@ -174,6 +174,7 @@ body {
 
 #panier-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 2%;
 }
@@ -247,6 +248,11 @@ body {
   text-align: center;
   font-size: 26px;
   margin-top: 20px;
+}
+
+.sorrymessage {
+  color: black;
+  font-size: 18px;
 }
 
 .information-container {
