@@ -1,6 +1,8 @@
 let quantityIcon = document.querySelector('.cart-btn__items');
-let orderSpan = document.querySelector('.order_id');
-let totalSpan = document.querySelector('.order_total');
+let section = document.querySelector('.confirmation-container');
+let orderId = JSON.parse(localStorage.getItem('orderId'));
+let contact = JSON.parse(localStorage.getItem('contact'));
+let total = JSON.parse(localStorage.getItem('total'));
 
 document.addEventListener('DOMContentLoaded', () => {
     setIconValue();
@@ -8,19 +10,26 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function displayConfirmation(){
-    if (localStorage.getItem('orderId')) {
-        let orderId = JSON.parse(localStorage.getItem('orderId'));
-        orderSpan.innerText = orderId;
+        section.innerHTML = 
+        `
+        <div class="sentence">
+            <p>Nous vous remercions de votre achat :)</p>         
+        </div>
+        <div class="sentence">
+            <p>Votre commande n° <span class="order_id">${orderId}</span> sera expédiée dans les plus bref delais.</p>         
+        </div>
+        <div class="sentence">
+            <p>Prénom: ${contact.firstName} <br> Nom : ${contact.lastName} <br> Adresse : ${contact.address}<br> Ville: ${contact.city}<br> Email : ${contact.email}</p>         
+        </div>
+        <div class="sentence">
+            <p>Total: <span class="order_total">${total}</span>€</p>         
+        </div>
+        `
         localStorage.removeItem('orderId');
-    }
-
-    if (localStorage.getItem('total')) {
-        let total = JSON.parse(localStorage.getItem('total'));
-        totalSpan.innerText = total;
+        localStorage.removeItem('contact');
         localStorage.removeItem('total');
-    }
-
 }
+
 
 //Afficher les valeurs dans l'icône orange du panier;
 function setIconValue(){

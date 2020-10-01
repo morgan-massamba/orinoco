@@ -132,6 +132,7 @@ function setCartValues(){
                 return res.json();
             })
             .then (res => {
+                localStorage.setItem('contact', JSON.stringify(res.contact));
                 localStorage.setItem('orderId', JSON.stringify(res.orderId));
                 localStorage.setItem('total', JSON.stringify(total));
                 localStorage.removeItem('cart');
